@@ -9,8 +9,8 @@
     "prepare": "npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Md Al Amin Tusar",
+  "license": "MIT",
   "description": "Random person data generation utility library",
   "devDependencies": {
     "@types/node": "^25.9.1",
@@ -31,5 +31,13 @@
   ],
   "dependencies": {
     "@faker-js/faker": "^10.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TKshadow018/character-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TKshadow018/character-generator/issues"
+  },
+  "homepage": "https://github.com/TKshadow018/character-generator#readme"
 }

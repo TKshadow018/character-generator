@@ -1,4 +1,4 @@
-import { EDUCATION_LEVELS } from "../data/education.js";
+import { EDUCATION_LEVELS, type EducationLevel } from "../data/education.js";
 import {
   EMPLOYMENT_TYPES,
   MARITAL_STATUSES,
