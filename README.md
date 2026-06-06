@@ -1,39 +1,52 @@
-# character-generator
+# faker-user
 
 A flexible npm library for generating realistic random person profiles with country-aware names, phone numbers, salary estimates, contact details, and custom attributes.
 
 ## Overview
 
-`character-generator` is designed for:
+`faker-user` is designed for:
 
 - prototyping user profiles
 - test data generation
 - game NPC generation
 - demo apps and mock APIs
 
-It supports deep customization through a single `generatePerson()` API and a lightweight `generateName()` helper.
+It supports deep customization through `generatePerson()`, `generatePersons()`, and `generateName()`.
 
 ## Install
 
 Install from npm:
 
 ```bash
-npm install character-generator
+npm install faker-user
 ```
 
 Or install locally from the repository:
 
 ```bash
-npm install /path/to/character-generator
+npm install /path/to/faker-user
 ```
 
 ## Quick Start
 
 ```ts
-import { generateName, generatePerson } from "character-generator";
+import {
+  generateName,
+  genName,
+  createName,
+  generatePerson,
+  genPerson,
+  createPerson,
+  makePerson,
+  generatePersons,
+  genPersons,
+  createPersons,
+  makePersons
+} from "faker-user";
 
 const simpleName = generateName();
-console.log(simpleName);
+const simpleNameAlias = genName();
+console.log(simpleName, simpleNameAlias);
 
 const person = generatePerson({
   country: ["UnitedStates"],
@@ -43,7 +56,25 @@ const person = generatePerson({
   phone: "+44 7123456789"
 });
 
-console.log(person);
+const personAlias = createPerson({
+  country: ["UnitedStates"],
+  jobs: ["Software Engineer"]
+});
+
+const people = generatePersons({
+  country: ["Canada"],
+  jobs: ["Data Analyst"],
+  minAge: 22,
+  maxAge: 35,
+  salaryCurrency: "CAD"
+}, 3);
+
+const peopleAlias = genPersons({
+  country: ["Canada"],
+  jobs: ["Data Analyst"]
+}, 3);
+
+console.log(person, personAlias, people, peopleAlias);
 ```
 
 ## APIs
@@ -51,6 +82,8 @@ console.log(person);
 ### `generateName(options?)`
 
 Generates a random full name from the available name pools.
+
+Aliases: `genName`, `createName`
 
 ```ts
 generateName({ country: "Japan", gender: "female" });
@@ -65,6 +98,8 @@ generateName({ country: "Japan", gender: "female" });
 
 Generates a complete person object with name, location, job, salary, email, phone, attributes, and custom fields.
 
+Aliases: `genPerson`, `createPerson`, `makePerson`
+
 ```ts
 const person = generatePerson({
   country: ["India", "UnitedStates"],
@@ -73,6 +108,19 @@ const person = generatePerson({
   minAge: 25,
   maxAge: 40
 });
+```
+
+### `generatePersons(options?, itemNumber)`
+
+Generates an array of `Person` objects using the same options for each generated entry.
+
+Aliases: `genPersons`, `createPersons`, `makePersons`
+
+```ts
+const people = generatePersons({
+  country: ["Canada"],
+  jobs: ["Product Manager"]
+}, 5);
 ```
 
 ## `generatePerson()` Options
@@ -166,7 +214,7 @@ Custom fields are merged directly into the result object.
 
 ## How it works
 
-`character-generator` assembles profiles by combining multiple generators:
+`faker-user` assembles profiles by combining multiple generators:
 
 - `generateName()` selects gendered first and last names from country-specific pools.
 - `generatePerson()` resolves country, job, age, and profile metadata.
@@ -217,4 +265,4 @@ Good contribution targets include:
 - additional custom attribute types
 - documentation improvements
 
-Thanks for contributing to `character-generator`! Feel free to open issues or PRs with ideas, bug fixes, or new examples.
+Thanks for contributing to `faker-user`! Feel free to open issues or PRs with ideas, bug fixes, or new examples.

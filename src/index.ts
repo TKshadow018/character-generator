@@ -137,3 +137,24 @@ export function generatePerson(options: GeneratePersonOptions = {}): Person {
 		...customAttributes
 	};
 }
+
+export function generatePersons(options: GeneratePersonOptions = {}, itemNumber: number): Person[] {
+	return !Number.isInteger(itemNumber) || itemNumber < 1
+		? []
+		: (() => {
+			let result: Person[] = [];
+			for (let index = 0; index < itemNumber; index++) {
+				result.push(generatePerson(options));
+			}
+			return result;
+		})();
+}
+
+export const genName = generateName;
+export const createName = generateName;
+export const genPerson = generatePerson;
+export const createPerson = generatePerson;
+export const makePerson = generatePerson;
+export const genPersons = generatePersons;
+export const createPersons = generatePersons;
+export const makePersons = generatePersons;
