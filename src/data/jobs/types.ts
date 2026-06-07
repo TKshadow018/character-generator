@@ -8,7 +8,9 @@ export type Industry =
   | "Operations"
   | "Engineering"
   | "Hospitality"
-  | "Public Service";
+  | "Public Service"
+  | "Sports"
+  | "Other";
 
 export type WorkTypeLevel = "entry" | "mid" | "senior";
 

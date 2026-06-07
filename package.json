@@ -1,6 +1,6 @@
 {
   "name": "faker-user",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "./dist/index.js",
   "scripts": {
     "test": "vitest run",
@@ -29,9 +29,6 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@faker-js/faker": "^10.4.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TKshadow018/character-generator.git"

@@ -35,8 +35,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFA",
         "fakerAR",
@@ -59,8 +59,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFR",
@@ -83,8 +83,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerPT_PT",
         "fakerPT_BR",
@@ -107,8 +107,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -131,8 +131,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_AU",
         "fakerEN_GB",
@@ -155,8 +155,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerDE_AT",
         "fakerDE",
@@ -179,8 +179,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAZ",
         "fakerTR",
@@ -203,8 +203,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerBN_BD",
         "fakerEN_IN",
@@ -227,8 +227,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR_BE",
         "fakerNL_BE",
@@ -251,8 +251,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerFR_SN",
@@ -275,8 +275,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -299,8 +299,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerPT_BR",
         "fakerPT_PT",
@@ -323,8 +323,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerFR_SN",
@@ -347,8 +347,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerEN",
@@ -371,8 +371,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerTH",
         "fakerVI",
@@ -395,8 +395,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerEN",
@@ -419,8 +419,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_CA",
         "fakerFR_CA",
@@ -443,8 +443,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerAR",
@@ -467,8 +467,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -491,8 +491,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerZH_CN",
         "fakerZH_TW",
@@ -515,8 +515,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -539,8 +539,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerFR_SN",
@@ -563,8 +563,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -587,8 +587,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerCS_CZ",
         "fakerSK",
@@ -611,8 +611,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -635,8 +635,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerEN",
@@ -659,8 +659,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -683,8 +683,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFA",
@@ -707,8 +707,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_GB",
         "fakerEN_IE",
@@ -731,8 +731,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerAR",
@@ -755,8 +755,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerFR_BE",
@@ -779,8 +779,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerDE",
         "fakerDE_AT",
@@ -803,8 +803,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_GH",
         "fakerYO_NG",
@@ -827,8 +827,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEL",
         "fakerIT",
@@ -851,8 +851,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -875,8 +875,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerFR_SN",
@@ -899,8 +899,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerEN_US",
@@ -923,8 +923,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -947,8 +947,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerHU",
         "fakerRO",
@@ -971,8 +971,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_IN",
         "fakerTA_IN",
@@ -995,8 +995,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerID_ID",
         "fakerEN",
@@ -1019,8 +1019,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFA",
         "fakerAR",
@@ -1043,8 +1043,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFA",
@@ -1067,8 +1067,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_IE",
         "fakerEN_GB",
@@ -1091,8 +1091,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerHE",
         "fakerAR",
@@ -1115,8 +1115,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerIT",
         "fakerFR",
@@ -1139,8 +1139,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerJA",
         "fakerZH_CN",
@@ -1163,8 +1163,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerHE",
@@ -1187,8 +1187,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerRU",
         "fakerUZ_UZ_latin",
@@ -1211,8 +1211,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_GH",
         "fakerEN",
@@ -1235,8 +1235,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerEN",
@@ -1259,8 +1259,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerEN_GH",
@@ -1283,8 +1283,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerID_ID",
@@ -1307,8 +1307,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerFR_SN",
@@ -1331,8 +1331,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES_MX",
         "fakerES",
@@ -1355,8 +1355,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFR",
@@ -1379,8 +1379,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerPT_PT",
         "fakerPT_BR",
@@ -1403,8 +1403,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerTH",
         "fakerEN",
@@ -1427,8 +1427,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_ZA",
         "fakerAF_ZA",
@@ -1451,8 +1451,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerNE",
         "fakerEN_IN",
@@ -1475,8 +1475,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerNL",
         "fakerNL_BE",
@@ -1499,8 +1499,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_AU",
         "fakerEN_GB",
@@ -1523,8 +1523,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerAR",
@@ -1547,8 +1547,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_NG",
         "fakerYO_NG",
@@ -1571,8 +1571,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerKO",
         "fakerZH_CN",
@@ -1595,8 +1595,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFA",
@@ -1619,8 +1619,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerUR",
         "fakerEN_IN",
@@ -1643,8 +1643,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_AU",
         "fakerEN",
@@ -1667,8 +1667,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -1691,8 +1691,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerES",
@@ -1715,8 +1715,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerPL",
         "fakerSK",
@@ -1739,8 +1739,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerPT_PT",
         "fakerPT_BR",
@@ -1763,8 +1763,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerRO",
         "fakerRO_MD",
@@ -1787,8 +1787,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerRU",
         "fakerUK",
@@ -1811,8 +1811,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerFR",
@@ -1835,8 +1835,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFA",
@@ -1859,8 +1859,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_GB",
         "fakerEN_IE",
@@ -1883,8 +1883,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR_SN",
         "fakerFR",
@@ -1907,8 +1907,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerEN",
@@ -1931,8 +1931,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_ZA",
         "fakerZU_ZA",
@@ -1955,8 +1955,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerKO",
         "fakerJA",
@@ -1979,8 +1979,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerAR",
@@ -2003,8 +2003,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -2027,8 +2027,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_IN",
         "fakerTA_IN",
@@ -2051,8 +2051,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerEN",
@@ -2075,8 +2075,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerSV",
         "fakerNB_NO",
@@ -2099,8 +2099,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerDE_CH",
         "fakerFR_CH",
@@ -2123,8 +2123,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFA",
@@ -2147,8 +2147,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerZH_TW",
         "fakerZH_CN",
@@ -2171,8 +2171,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerRU",
         "fakerUZ_UZ_latin",
@@ -2195,8 +2195,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerEN_GH",
@@ -2219,8 +2219,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerTH",
         "fakerVI",
@@ -2243,8 +2243,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerFR",
         "fakerFR_SN",
@@ -2267,8 +2267,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFR",
@@ -2291,8 +2291,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerTR",
         "fakerAZ",
@@ -2315,8 +2315,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFA",
@@ -2339,8 +2339,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerEN_GH",
@@ -2363,8 +2363,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerUK",
         "fakerRU",
@@ -2387,8 +2387,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_GB",
         "fakerEN_IE",
@@ -2411,8 +2411,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_US",
         "fakerEN",
@@ -2435,8 +2435,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerUZ_UZ_latin",
         "fakerRU",
@@ -2459,8 +2459,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerES",
         "fakerES_MX",
@@ -2483,8 +2483,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Country-specific locale available."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerVI",
         "fakerTH",
@@ -2507,8 +2507,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerEN_GH",
@@ -2531,8 +2531,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerAR",
         "fakerFA",
@@ -2555,8 +2555,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN",
         "fakerEN_GH",
@@ -2579,8 +2579,8 @@ export const countryDatasetConfidence: Record<string, CountryDatasetConfidence> 
       "notes": "Used closest open locale proxy/fallback."
     },
     "sources": {
-      "name": "@faker-js/faker locale datasets",
-      "url": "https://github.com/faker-js/faker",
+      "name": "internal curated locale datasets",
+      "url": "https://github.com/TKshadow018/character-generator",
       "localeExports": [
         "fakerEN_ZA",
         "fakerEN_GH",
