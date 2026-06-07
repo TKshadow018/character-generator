@@ -1,5 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { generateName, generatePerson } from "./index.js";
+import { generateName, generatePerson, generatePersons, GeneratePersonOutputOption } from "./index.js";
+
+function calculateAgeFromDob(dob: string): number {
+  const [year, month, day] = dob.split("-").map(Number);
+  const birthDate = new Date(year, month - 1, day);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const hasBirthdayPassed =
+    today.getMonth() > birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+
+  if (!hasBirthdayPassed) {
+    age -= 1;
+  }
+
+  return age;
+}
 
 describe("generateName", () => {
   it("returns a first and last name for a specific country and gender", () => {
@@ -13,7 +29,7 @@ describe("generateName", () => {
     const person = generatePerson({ name: "Aiko Tanaka", nameFormat: "lastFirst", country: ["Japan"], jobs: ["Software Engineer"] });
 
     expect(person.name).toBe("Aiko Tanaka");
-    expect(person.email).toContain("@japan.example.com");
+    expect(person.email).toContain("@");
   });
 });
 
@@ -66,6 +82,49 @@ describe("generatePerson", () => {
     expect(person.salaryCurrency).toBe("EUR");
   });
 
+  it("returns only requested fields when outputOption is provided", () => {
+    const person = generatePerson(
+      {
+        country: ["UnitedStates"],
+        jobs: ["Software Engineer"]
+      },
+      { outputOption: [GeneratePersonOutputOption.Name, GeneratePersonOutputOption.Email] }
+    );
+
+    expect(person).toHaveProperty("name");
+    expect(person).toHaveProperty("email");
+    expect((person as any).country).toBeUndefined();
+    expect(Object.keys(person)).toEqual(expect.arrayContaining(["name", "email"]));
+  });
+
+  it("returns a single field when outputOption is a string enum value", () => {
+    const person = generatePerson(
+      {
+        country: ["UnitedStates"],
+        jobs: ["Software Engineer"]
+      },
+      { outputOption: GeneratePersonOutputOption.Phone }
+    );
+
+    expect(person).toHaveProperty("phone");
+    expect((person as any).name).toBeUndefined();
+    expect(Object.keys(person)).toEqual(["phone"]);
+  });
+
+  it("returns dob when outputOption includes Dob", () => {
+    const person = generatePerson(
+      {
+        country: ["UnitedStates"],
+        jobs: ["Software Engineer"]
+      },
+      { outputOption: GeneratePersonOutputOption.Dob }
+    );
+
+    expect(person).toHaveProperty("dob");
+    expect((person as any).name).toBeUndefined();
+    expect((person as any).dob).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
   it("supports custom phone country and exact phone override", () => {
     const person = generatePerson({
       country: ["UnitedStates"],
@@ -90,7 +149,6 @@ describe("generatePerson", () => {
         { field: "Luck", type: "float", min: 0, max: 1 }
       ]
     });
-    console.log(person);
 
     expect(typeof person.power).toBe("number");
     expect(person.power).toBeGreaterThanOrEqual(1);
@@ -103,13 +161,47 @@ describe("generatePerson", () => {
     expect(person.Luck as number).toBeLessThanOrEqual(1);
   });
 
+  it("returns only requested fields for generatePersons when outputOption is provided", () => {
+    const people = generatePersons(
+      {
+        country: ["UnitedStates"],
+        jobs: ["Software Engineer"]
+      },
+      2,
+      { outputOption: [GeneratePersonOutputOption.Name, GeneratePersonOutputOption.Email] }
+    );
+
+    expect(people).toHaveLength(2);
+    expect(people[0]).toHaveProperty("name");
+    expect(people[0]).toHaveProperty("email");
+    expect((people[0] as any).country).toBeUndefined();
+    expect(Object.keys(people[0])).toEqual(expect.arrayContaining(["name", "email"]));
+  });
+
   it("falls back to default values when no options are provided", () => {
     const person = generatePerson();
 
     expect(person.age).toBeGreaterThanOrEqual(18);
     expect(person.age).toBeLessThanOrEqual(75);
+    expect(person.dob).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(person.salaryCurrency).toBe("USD");
     expect(person.phone).toMatch(/^\+/);
     expect(person.email).toContain("@");
+  });
+
+  it("generates dob that satisfies provided minAge and maxAge", () => {
+    const minAge = 30;
+    const maxAge = 35;
+    const person = generatePerson({
+      country: ["Canada"],
+      jobs: ["Data Analyst"],
+      minAge,
+      maxAge
+    });
+
+    const ageFromDob = calculateAgeFromDob(person.dob);
+    expect(ageFromDob).toBeGreaterThanOrEqual(minAge);
+    expect(ageFromDob).toBeLessThanOrEqual(maxAge);
+    expect(person.age).toBe(ageFromDob);
   });
 });

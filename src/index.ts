@@ -1,16 +1,15 @@
 import { JOB_TITLES } from "./data/professions.js";
-import { buildPersonAttributes } from "./person/attributes.js";
-import { AVAILABLE_COUNTRIES, AVAILABLE_GENDERS, type Gender } from "./person/config.js";
-import { randomAge } from "./person/age.js";
+import { buildPersonAttributes, resolveCustomAttributes } from "./person/attributes.js";
+import { AVAILABLE_COUNTRIES, AVAILABLE_GENDERS } from "./person/config.js";
 import { buildEmail } from "./person/email.js";
-import { generateCity } from "./person/address.js";
+import { resolveCity } from "./person/address.js";
 import { generatePhoneNumber } from "./person/phone.js";
-import { resolveNamePools } from "./person/name.js";
+import { resolvePersonName, resolveNamePools } from "./person/name.js";
+import { filterResultByOutput } from "./person/output.js";
+import { resolveAgeAndDob } from "./person/age.js";
 import { pickFromOption, randomItem } from "./person/random.js";
 import { randomSalary } from "./person/salary.js";
-import { randomNumber } from "./utils.js";
-import type { CountryName } from "./names/common.js";
-import type { CustomAttributeDefinition, GenerateNameOptions, GeneratePersonOptions, Person } from "./person/types.js";
+import type { GenerateNameOptions, GeneratePersonOptions, GeneratePersonOutputOptions, Person } from "./person/types.js";
 
 export function generateName(options: GenerateNameOptions = {}): string {
 	const gender = pickFromOption(options.gender, AVAILABLE_GENDERS);
@@ -19,87 +18,13 @@ export function generateName(options: GenerateNameOptions = {}): string {
 	return `${randomItem(firstNames)} ${randomItem(lastNames)}`;
 }
 
-function resolvePersonName(options: GeneratePersonOptions, country: CountryName, gender: Gender): string {
-	if (options.name) {
-		return options.name;
-	}
+export function generatePerson(options?: GeneratePersonOptions): Person;
+export function generatePerson(options: GeneratePersonOptions, outputOptions: GeneratePersonOutputOptions): Partial<Person>;
+export function generatePerson(options: GeneratePersonOptions = {}, outputOptions?: GeneratePersonOutputOptions): Person | Partial<Person> {
+	const minAge = options.minAge ?? 18;
+	const maxAge = options.maxAge ?? 75;
+	const { age, dob } = resolveAgeAndDob(minAge, maxAge);
 
-	const { firstNames, lastNames } = resolveNamePools(country, gender);
-	const firstName = options.firstName ?? randomItem(firstNames);
-	const lastName = options.lastName ?? randomItem(lastNames);
-
-	return options.nameFormat === "lastFirst"
-		? `${lastName}, ${firstName}`
-		: `${firstName} ${lastName}`;
-}
-
-function resolveCity(cityOption: string | readonly string[] | undefined, country: CountryName): string {
-	if (typeof cityOption === "string") {
-		return cityOption;
-	}
-
-	if (Array.isArray(cityOption)) {
-		return randomItem(cityOption);
-	}
-
-	return generateCity(country);
-}
-
-function randomFloat(min: number, max: number, decimals = 4): number {
-	if (min > max) {
-		throw new RangeError("min must be less than or equal to max");
-	}
-
-	const value = Math.random() * (max - min) + min;
-	return Number(value.toFixed(decimals));
-}
-
-function resolveCustomAttributes(custom?: readonly CustomAttributeDefinition[]): Record<string, unknown> {
-	if (!custom?.length) {
-		return {};
-	}
-
-	return custom.reduce<Record<string, unknown>>((result, attribute) => {
-		switch (attribute.type) {
-			case "integer": {
-				const min = Math.ceil(attribute.min);
-				const max = Math.floor(attribute.max);
-				result[attribute.field] = randomNumber(min, max);
-				return result;
-			}
-
-			case "float": {
-				result[attribute.field] = randomFloat(attribute.min, attribute.max);
-				return result;
-			}
-
-			case "boolean": {
-				result[attribute.field] = Math.random() >= 0.5;
-				return result;
-			}
-
-			case "enum": {
-				if (!attribute.values.length) {
-					throw new RangeError("Enum attribute values must not be empty");
-				}
-
-				result[attribute.field] = randomItem(attribute.values);
-				return result;
-			}
-
-			case "fixed": {
-				result[attribute.field] = attribute.value;
-				return result;
-			}
-
-			default: {
-				throw new RangeError(`Unsupported custom attribute type: ${(attribute as CustomAttributeDefinition).type}`);
-			}
-		}
-	}, {});
-}
-
-export function generatePerson(options: GeneratePersonOptions = {}): Person {
 	const gender = pickFromOption(options.gender, AVAILABLE_GENDERS);
 	const country = pickFromOption(options.country, AVAILABLE_COUNTRIES);
 	const job = pickFromOption(options.jobs, JOB_TITLES);
@@ -119,12 +44,12 @@ export function generatePerson(options: GeneratePersonOptions = {}): Person {
 		? pickFromOption(options.phoneCountry, [country])
 		: country;
 	const phone = options.phone ?? generatePhoneNumber(phoneCountry, options.phonePrefix);
-	const email = options.email ?? buildEmail(name, country, options.emailDomain);
+	const email = options.email ?? buildEmail(name, country, dob, options.emailDomain);
 	const customAttributes = resolveCustomAttributes(options.custom);
-
-	return {
+	const result = {
 		name,
-		age: randomAge(options.minAge ?? 18, options.maxAge ?? 75),
+		age,
+		dob,
 		gender,
 		country,
 		city,
@@ -136,18 +61,21 @@ export function generatePerson(options: GeneratePersonOptions = {}): Person {
 		...attributes,
 		...customAttributes
 	};
+	return filterResultByOutput(result, outputOptions?.outputOption) as Person | Partial<Person>;
 }
 
-export function generatePersons(options: GeneratePersonOptions = {}, itemNumber: number): Person[] {
-	return !Number.isInteger(itemNumber) || itemNumber < 1
-		? []
-		: (() => {
-			let result: Person[] = [];
-			for (let index = 0; index < itemNumber; index++) {
-				result.push(generatePerson(options));
-			}
-			return result;
-		})();
+export function generatePersons(options: GeneratePersonOptions, itemNumber: number): Person[];
+export function generatePersons(options: GeneratePersonOptions, itemNumber: number, outputOptions: GeneratePersonOutputOptions): Partial<Person>[];
+export function generatePersons(options: GeneratePersonOptions = {}, itemNumber: number, outputOptions?: GeneratePersonOutputOptions): Person[] | Partial<Person>[] {
+	if (!Number.isInteger(itemNumber) || itemNumber < 1) {
+		return [];
+	}
+
+	const result: (Person | Partial<Person>)[] = [];
+	for (let index = 0; index < itemNumber; index++) {
+		result.push(outputOptions ? generatePerson(options, outputOptions) : generatePerson(options));
+	}
+	return result as Person[] | Partial<Person>[];
 }
 
 export const genName = generateName;
@@ -158,3 +86,5 @@ export const makePerson = generatePerson;
 export const genPersons = generatePersons;
 export const createPersons = generatePersons;
 export const makePersons = generatePersons;
+
+export { GeneratePersonOutputOption } from "./person/types.js";

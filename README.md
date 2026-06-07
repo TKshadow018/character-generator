@@ -101,13 +101,20 @@ Generates a complete person object with name, location, job, salary, email, phon
 Aliases: `genPerson`, `createPerson`, `makePerson`
 
 ```ts
-const person = generatePerson({
-  country: ["India", "UnitedStates"],
-  gender: "female",
-  jobs: ["Software Engineer", "Data Analyst"],
-  minAge: 25,
-  maxAge: 40
-});
+import { generatePerson, GeneratePersonOutputOption } from "faker-user";
+
+const person = generatePerson(
+  {
+    country: ["India", "UnitedStates"],
+    gender: "female",
+    jobs: ["Software Engineer", "Data Analyst"],
+    minAge: 25,
+    maxAge: 40
+  },
+  {
+    outputOption: [GeneratePersonOutputOption.Name, GeneratePersonOutputOption.Email]
+  }
+);
 ```
 
 ### `generatePersons(options?, itemNumber)`
@@ -117,10 +124,18 @@ Generates an array of `Person` objects using the same options for each generated
 Aliases: `genPersons`, `createPersons`, `makePersons`
 
 ```ts
-const people = generatePersons({
-  country: ["Canada"],
-  jobs: ["Product Manager"]
-}, 5);
+import { generatePersons, GeneratePersonOutputOption } from "faker-user";
+
+const people = generatePersons(
+  {
+    country: ["Canada"],
+    jobs: ["Product Manager"]
+  },
+  5,
+  {
+    outputOption: [GeneratePersonOutputOption.Name, GeneratePersonOutputOption.City]
+  }
+);
 ```
 
 ## `generatePerson()` Options
@@ -155,6 +170,12 @@ const people = generatePersons({
 - `phone?: string` — exact phone string override
 - `phoneCountry?: CountryName | readonly CountryName[]` — use a different country phone format
 - `phonePrefix?: string` — force the phone operator prefix
+
+### Result filtering
+
+- `outputOption?: GeneratePersonOutputOption | readonly GeneratePersonOutputOption[]` — return only the desired predefined profile field or fields
+
+Includes `GeneratePersonOutputOption.Dob` to select date of birth only.
 
 ### Attribute and profile options
 
@@ -198,6 +219,7 @@ Built-in result fields include:
 
 - `name`
 - `age`
+- `dob`
 - `gender`
 - `country`
 - `city`
@@ -237,15 +259,6 @@ Run the test suite:
 
 ```bash
 npm test
-```
-
-## Publish
-
-Publish the package to npm:
-
-```bash
-npm login
-npm publish --access public
 ```
 
 ## Contributing

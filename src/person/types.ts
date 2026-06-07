@@ -74,9 +74,31 @@ export interface GeneratePersonOptions extends GenerateNameOptions {
   custom?: readonly CustomAttributeDefinition[];
 }
 
+export enum GeneratePersonOutputOption {
+  Name = "name",
+  Age = "age",
+  Dob = "dob",
+  Gender = "gender",
+  Country = "country",
+  City = "city",
+  Job = "job",
+  Salary = "salary",
+  SalaryCurrency = "salaryCurrency",
+  Email = "email",
+  Phone = "phone",
+  EducationLevel = "educationLevel",
+  MaritalStatus = "maritalStatus",
+  EmploymentType = "employmentType"
+}
+
+export interface GeneratePersonOutputOptions {
+  outputOption?: GeneratePersonOutputOption | readonly GeneratePersonOutputOption[];
+}
+
 export interface Person {
   name: string;
   age: number;
+  dob: string;
   gender: Gender;
   country: CountryName;
   city: string;
