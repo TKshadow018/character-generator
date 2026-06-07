@@ -8,6 +8,7 @@ import { OPERATIONS_JOBS } from "./operations.js";
 import { ENGINEERING_JOBS } from "./engineering.js";
 import { HOSPITALITY_JOBS } from "./hospitality.js";
 import { PUBLICSERVICE_JOBS } from "./public-service.js";
+import { SPORTS_JOBS } from "./sports.js";
 import type { JobProfile, JobTitle } from "./types.js";
 
 export const JOB_PROFILES = [
@@ -20,7 +21,8 @@ export const JOB_PROFILES = [
   ...OPERATIONS_JOBS,
   ...ENGINEERING_JOBS,
   ...HOSPITALITY_JOBS,
-  ...PUBLICSERVICE_JOBS
+  ...PUBLICSERVICE_JOBS,
+  ...SPORTS_JOBS
 ] as const satisfies readonly JobProfile[];
 
 export const JOB_TITLES = JOB_PROFILES.map((profile) => profile.title) as readonly JobTitle[];

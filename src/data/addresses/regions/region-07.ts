@@ -10,6 +10,9 @@ import { CITY_NAMES as HONDURAS_CITIES } from "../countries/honduras.js";
 import { CITY_NAMES as TAJIKISTAN_CITIES } from "../countries/tajikistan.js";
 import { CITY_NAMES as PAPUANEWGUINEA_CITIES } from "../countries/papua-new-guinea.js";
 import { CITY_NAMES as CUBA_CITIES } from "../countries/cuba.js";
+import { CITY_NAMES as JAMAICA_CITIES } from "../countries/jamaica.js";
+import { CITY_NAMES as TRINIDADANDTOBAGO_CITIES } from "../countries/trinidad-and-tobago.js";
+import { CITY_NAMES as WESTINDIES_CITIES } from "../countries/west-indies.js";
 import { CITY_NAMES as SWEDEN_CITIES } from "../countries/sweden.js";
 import type { CountryName } from "../../../names/common.js";
 
@@ -26,5 +29,8 @@ export const REGION_07_CITIES = {
   Tajikistan: TAJIKISTAN_CITIES,
   PapuaNewGuinea: PAPUANEWGUINEA_CITIES,
   Cuba: CUBA_CITIES,
+  Jamaica: JAMAICA_CITIES,
+  TrinidadAndTobago: TRINIDADANDTOBAGO_CITIES,
+  WestIndies: WESTINDIES_CITIES,
   Sweden: SWEDEN_CITIES
 } as const satisfies Partial<Record<CountryName, readonly string[]>>;

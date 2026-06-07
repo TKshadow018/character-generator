@@ -1,7 +1,6 @@
 import { EDUCATION_LEVELS, type EducationLevel } from "../data/education.js";
 import {
   EMPLOYMENT_TYPES,
-  MARITAL_STATUSES,
   type EmploymentType,
   type MaritalStatus
 } from "../data/employment.js";
@@ -10,6 +9,7 @@ import { randomItem } from "./random.js";
 import type { CustomAttributeDefinition } from "./types.js";
 
 export function buildPersonAttributes(options?: {
+  age?: number;
   educationLevel?: EducationLevel;
   maritalStatus?: MaritalStatus;
   employmentType?: EmploymentType;
@@ -20,9 +20,66 @@ export function buildPersonAttributes(options?: {
 } {
   return {
     educationLevel: options?.educationLevel ?? randomItem(EDUCATION_LEVELS),
-    maritalStatus: options?.maritalStatus ?? randomItem(MARITAL_STATUSES),
+    maritalStatus: options?.maritalStatus ?? resolveMaritalStatusByAge(options?.age),
     employmentType: options?.employmentType ?? randomItem(EMPLOYMENT_TYPES)
   };
+}
+
+function weightedRandomMaritalStatus(
+  weightedStatuses: ReadonlyArray<{ status: MaritalStatus; weight: number }>
+): MaritalStatus {
+  const totalWeight = weightedStatuses.reduce((sum, item) => sum + item.weight, 0);
+  const random = Math.random() * totalWeight;
+  let cumulative = 0;
+
+  for (const item of weightedStatuses) {
+    cumulative += item.weight;
+    if (random < cumulative) {
+      return item.status;
+    }
+  }
+
+  return weightedStatuses[weightedStatuses.length - 1].status;
+}
+
+function resolveMaritalStatusByAge(age: number | undefined): MaritalStatus {
+  if (age === undefined) {
+    return weightedRandomMaritalStatus([
+      { status: "single", weight: 48 },
+      { status: "married", weight: 48 },
+      { status: "widowed", weight: 1 },
+      { status: "divorced", weight: 3 }
+    ]);
+  }
+
+  if (age <= 16) {
+    return "single";
+  }
+
+  if (age <= 30) {
+    return weightedRandomMaritalStatus([
+      { status: "single", weight: 48 },
+      { status: "married", weight: 48 },
+      { status: "widowed", weight: 1 },
+      { status: "divorced", weight: 3 }
+    ]);
+  }
+
+  if (age <= 60) {
+    return weightedRandomMaritalStatus([
+      { status: "single", weight: 20 },
+      { status: "married", weight: 73 },
+      { status: "widowed", weight: 3 },
+      { status: "divorced", weight: 4 }
+    ]);
+  }
+
+  return weightedRandomMaritalStatus([
+    { status: "single", weight: 10 },
+    { status: "married", weight: 50 },
+    { status: "widowed", weight: 35 },
+    { status: "divorced", weight: 5 }
+  ]);
 }
 
 function randomFloat(min: number, max: number, decimals = 4): number {

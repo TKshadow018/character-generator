@@ -7,6 +7,10 @@ import { CITY_NAMES as ISRAEL_CITIES } from "../countries/israel.js";
 import { CITY_NAMES as HUNGARY_CITIES } from "../countries/hungary.js";
 import { CITY_NAMES as AUSTRIA_CITIES } from "../countries/austria.js";
 import { CITY_NAMES as SWITZERLAND_CITIES } from "../countries/switzerland.js";
+import { CITY_NAMES as IRELAND_CITIES } from "../countries/ireland.js";
+import { CITY_NAMES as ENGLAND_CITIES } from "../countries/england.js";
+import { CITY_NAMES as SCOTLAND_CITIES } from "../countries/scotland.js";
+import { CITY_NAMES as WALES_CITIES } from "../countries/wales.js";
 import type { CountryName } from "../../../names/common.js";
 
 export const REGION_08_CITIES = {
@@ -18,5 +22,9 @@ export const REGION_08_CITIES = {
   Israel: ISRAEL_CITIES,
   Hungary: HUNGARY_CITIES,
   Austria: AUSTRIA_CITIES,
-  Switzerland: SWITZERLAND_CITIES
+  Switzerland: SWITZERLAND_CITIES,
+  Ireland: IRELAND_CITIES,
+  England: ENGLAND_CITIES,
+  Scotland: SCOTLAND_CITIES,
+  Wales: WALES_CITIES
 } as const satisfies Partial<Record<CountryName, readonly string[]>>;

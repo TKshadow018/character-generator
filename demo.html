@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Generator Playground</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-1: #08121a;
+      --bg-2: #101f2c;
+      --ink: #edf5fb;
+      --muted: #a7bbcb;
+      --stroke: rgba(173, 210, 233, 0.2);
+      --panel: rgba(9, 23, 34, 0.9);
+      --accent: #ff8b3d;
+      --accent-2: #16b7a1;
+      --danger: #ff6978;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(22, 183, 161, 0.12), transparent 60%),
+        radial-gradient(900px 500px at 110% -20%, rgba(255, 139, 61, 0.14), transparent 55%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      padding: 24px;
+    }
+
+    .shell {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+      animation: reveal 420ms ease;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      padding: 26px;
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(9, 23, 34, 0.92), rgba(12, 33, 45, 0.85));
+      border: 1px solid var(--stroke);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 2.3vw, 3rem);
+      letter-spacing: 0.01em;
+    }
+
+    .sub {
+      margin-top: 10px;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+
+    .layout {
+      display: grid;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (min-width: 1080px) {
+      .layout {
+        grid-template-columns: 1.35fr 1fr;
+      }
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .preview-card {
+      align-self: start;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.08rem;
+      letter-spacing: 0.01em;
+    }
+
+    .fields {
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (min-width: 720px) {
+      .row.two {
+        grid-template-columns: 1fr 1fr;
+      }
+      .row.three {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    label {
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--stroke);
+      border-radius: 12px;
+      background: rgba(8, 18, 26, 0.9);
+      color: var(--ink);
+      padding: 10px 12px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 86px;
+      resize: vertical;
+    }
+
+    .hint {
+      font-size: 0.79rem;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    button {
+      border: 1px solid transparent;
+      border-radius: 12px;
+      font: inherit;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 10px 14px;
+      cursor: pointer;
+      color: #0a1117;
+      background: linear-gradient(130deg, var(--accent), #ffb042);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    button.secondary {
+      background: linear-gradient(130deg, #95abbb, #c1d6e8);
+    }
+
+    button.ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--stroke);
+    }
+
+    button.danger {
+      background: transparent;
+      color: var(--danger);
+      border-color: rgba(255, 105, 120, 0.45);
+    }
+
+    .custom-row {
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      background: rgba(8, 18, 26, 0.55);
+    }
+
+    .code {
+      margin: 0;
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      background: rgba(8, 18, 26, 0.95);
+      padding: 15px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 0.88rem;
+      min-height: 180px;
+    }
+
+    #callSnippet {
+      min-height: 220px;
+    }
+
+    #resultOutput {
+      min-height: 240px;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <h1>Character Generator Playground</h1>
+      <p class="sub">All library options are available here. Configure inputs, generate the exact function call, and run it to inspect output instantly.</p>
+    </section>
+
+    <section class="layout">
+      <section class="card">
+        <h2>Person Options</h2>
+        <div class="fields">
+          <div class="row two">
+            <div class="field">
+              <label for="country">Country / group</label>
+              <input id="country" list="countryList" placeholder="Type to search country or group" />
+              <datalist id="countryList"></datalist>
+            </div>
+            <div class="field">
+              <label for="gender">Gender</label>
+              <select id="gender"></select>
+            </div>
+          </div>
+
+          <div class="row three">
+            <div class="field">
+              <label for="minAge">Min age</label>
+              <input id="minAge" type="number" min="0" placeholder="18" />
+            </div>
+            <div class="field">
+              <label for="maxAge">Max age</label>
+              <input id="maxAge" type="number" min="0" placeholder="75" />
+            </div>
+            <div class="field">
+              <label for="salaryCurrency">Salary currency</label>
+              <input id="salaryCurrency" list="salaryCurrencyList" placeholder="Type to search currency" />
+              <datalist id="salaryCurrencyList"></datalist>
+            </div>
+          </div>
+
+          <div class="row three">
+            <div class="field">
+              <label for="salaryExact">Salary exact</label>
+              <input id="salaryExact" type="number" min="0" placeholder="Optional" />
+            </div>
+            <div class="field">
+              <label for="salaryMin">Salary min</label>
+              <input id="salaryMin" type="number" min="0" placeholder="Optional" />
+            </div>
+            <div class="field">
+              <label for="salaryMax">Salary max</label>
+              <input id="salaryMax" type="number" min="0" placeholder="Optional" />
+            </div>
+          </div>
+
+          <div class="row two">
+            <div class="field">
+              <label for="job">Job</label>
+              <input id="job" list="jobList" placeholder="Type to search job, e.g. Cricketer" />
+              <datalist id="jobList"></datalist>
+            </div>
+            <div class="field">
+              <label for="city">City override</label>
+              <input id="city" type="text" placeholder="Optional" />
+            </div>
+          </div>
+
+          <div class="row three">
+            <div class="field">
+              <label for="educationLevel">Education level</label>
+              <select id="educationLevel"></select>
+            </div>
+            <div class="field">
+              <label for="maritalStatus">Marital status</label>
+              <select id="maritalStatus"></select>
+            </div>
+            <div class="field">
+              <label for="employmentType">Employment type</label>
+              <select id="employmentType"></select>
+            </div>
+          </div>
+
+          <div class="row two">
+            <div class="field">
+              <label for="name">Full name override</label>
+              <input id="name" type="text" placeholder="Optional" />
+            </div>
+            <div class="field">
+              <label for="nameFormat">Name format</label>
+              <select id="nameFormat">
+                <option value="">auto</option>
+                <option value="firstLast">firstLast</option>
+                <option value="lastFirst">lastFirst</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row two">
+            <div class="field">
+              <label for="firstName">First name override</label>
+              <input id="firstName" type="text" placeholder="Optional" />
+            </div>
+            <div class="field">
+              <label for="lastName">Last name override</label>
+              <input id="lastName" type="text" placeholder="Optional" />
+            </div>
+          </div>
+
+          <div class="row three">
+            <div class="field">
+              <label for="email">Email override</label>
+              <input id="email" type="text" placeholder="Optional" />
+            </div>
+            <div class="field">
+              <label for="emailDomain">Email domain</label>
+              <input id="emailDomain" type="text" placeholder="Optional" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone override</label>
+              <input id="phone" type="text" placeholder="Optional" />
+            </div>
+          </div>
+
+          <div class="row two">
+            <div class="field">
+              <label for="phoneCountry">Phone country / group</label>
+              <input id="phoneCountry" list="phoneCountryList" placeholder="Type to search phone country/group" />
+              <datalist id="phoneCountryList"></datalist>
+            </div>
+            <div class="field">
+              <label for="phonePrefix">Phone prefix</label>
+              <input id="phonePrefix" type="text" placeholder="Digits only" />
+            </div>
+          </div>
+        </div>
+
+        <h2>Custom Attributes Builder</h2>
+        <p class="hint">Build custom definitions with a guided editor. JSON is generated automatically.</p>
+        <div class="actions">
+          <button id="addCustom" type="button" class="secondary">Add custom attribute</button>
+        </div>
+        <div id="customRows" class="fields"></div>
+        <div class="field">
+          <label for="customJson">Generated custom JSON</label>
+          <textarea id="customJson" readonly placeholder="[]"></textarea>
+        </div>
+      </section>
+
+      <section class="card preview-card">
+        <h2>Items In Output That I Want</h2>
+        <div class="field">
+          <label for="outputOption">Output option fields (optional, Ctrl/Cmd-click for multi-select)</label>
+          <select id="outputOption" multiple size="8"></select>
+        </div>
+        <div class="actions">
+          <button id="buildCall" type="button">Build call snippet</button>
+          <button id="reset" type="button" class="ghost">Reset</button>
+        </div>
+
+        <div class="field">
+          <label>Generated call</label>
+          <pre id="callSnippet" class="code">Click Build call snippet.</pre>
+        </div>
+
+        <div class="actions">
+          <button id="execute" type="button">Execute</button>
+          <button id="reset" type="button" class="ghost">Reset</button>
+        </div>
+
+        <div class="field">
+          <label>Execution output</label>
+          <pre id="resultOutput" class="code">Click Execute to run generatePerson(...).</pre>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module">
+    import { generatePerson, GeneratePersonOutputOption } from "./dist/index.js";
+    import { AVAILABLE_COUNTRIES, AVAILABLE_GENDERS } from "./dist/person/config.js";
+    import { JOB_TITLES } from "./dist/data/professions.js";
+    import { EDUCATION_LEVELS } from "./dist/data/education.js";
+    import { MARITAL_STATUSES, EMPLOYMENT_TYPES } from "./dist/data/employment.js";
+    import { COUNTRY_CURRENCY_DATA } from "./dist/data/salary.js";
+
+    const $ = (id) => document.getElementById(id);
+    const isFilled = (value) => value !== undefined && value !== null && value !== "";
+
+    const callSnippet = $("callSnippet");
+    const resultOutput = $("resultOutput");
+    const customJson = $("customJson");
+    const customRows = $("customRows");
+
+    const searchIndexes = {
+      country: new Map(),
+      phoneCountry: new Map(),
+      job: new Map(),
+      salaryCurrency: new Map()
+    };
+
+    function setOptions(selectEl, values, includeAuto = true) {
+      selectEl.innerHTML = "";
+      if (includeAuto) {
+        const autoOption = document.createElement("option");
+        autoOption.value = "";
+        autoOption.textContent = "auto";
+        selectEl.appendChild(autoOption);
+      }
+
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        selectEl.appendChild(option);
+      });
+    }
+
+    function setSearchOptions(inputId, listId, values) {
+      const list = $(listId);
+      list.innerHTML = "";
+
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        list.appendChild(option);
+      });
+
+      const index = new Map(values.map((value) => [value.toLowerCase(), value]));
+      searchIndexes[inputId] = index;
+      $(inputId).value = "";
+    }
+
+    function knownValueOrUndefined(id, label) {
+      const raw = valueOrUndefined(id);
+      if (!raw) {
+        return undefined;
+      }
+
+      const normalized = raw.toLowerCase();
+      const index = searchIndexes[id];
+      const values = [...index.values()];
+
+      const exact = index.get(normalized);
+      if (exact) {
+        return exact;
+      }
+
+      const startsWithMatches = values.filter((value) => value.toLowerCase().startsWith(normalized));
+      if (startsWithMatches.length === 1) {
+        return startsWithMatches[0];
+      }
+
+      const containsMatches = values.filter((value) => value.toLowerCase().includes(normalized));
+      if (containsMatches.length === 1) {
+        return containsMatches[0];
+      }
+
+      if (containsMatches.length > 1) {
+        throw new Error(`${label} "${raw}" matches multiple options. Please type more characters.`);
+      }
+
+      throw new Error(`${label} "${raw}" is not in the available options.`);
+    }
+
+    function numericOrUndefined(id) {
+      const raw = $(id).value.trim();
+      if (!raw) {
+        return undefined;
+      }
+
+      const num = Number(raw);
+      return Number.isFinite(num) ? num : undefined;
+    }
+
+    function valueOrUndefined(id) {
+      const raw = $(id).value.trim();
+      return raw || undefined;
+    }
+
+    let customState = [];
+
+    function addCustomRow(seed = {}) {
+      customState.push({
+        field: seed.field || "",
+        type: seed.type || "integer",
+        min: seed.min ?? "",
+        max: seed.max ?? "",
+        values: seed.values || "",
+        value: seed.value ?? "",
+        fixedKind: seed.fixedKind || "string"
+      });
+      renderCustomRows();
+      syncCustomJson();
+    }
+
+    function removeCustomRow(index) {
+      customState.splice(index, 1);
+      renderCustomRows();
+      syncCustomJson();
+    }
+
+    function parseFixedValue(raw, kind) {
+      if (kind === "number") {
+        const num = Number(raw);
+        if (!Number.isFinite(num)) {
+          throw new Error("Fixed custom value must be a number.");
+        }
+        return num;
+      }
+
+      if (kind === "boolean") {
+        if (raw === "true") {
+          return true;
+        }
+        if (raw === "false") {
+          return false;
+        }
+        throw new Error("Fixed custom boolean must be true or false.");
+      }
+
+      return raw;
+    }
+
+    function toCustomDefinitions() {
+      return customState
+        .filter((item) => item.field.trim().length > 0)
+        .map((item) => {
+          const field = item.field.trim();
+          if (item.type === "integer" || item.type === "float") {
+            return {
+              field,
+              type: item.type,
+              min: Number(item.min),
+              max: Number(item.max)
+            };
+          }
+
+          if (item.type === "enum") {
+            return {
+              field,
+              type: "enum",
+              values: item.values
+                .split(",")
+                .map((v) => v.trim())
+                .filter(Boolean)
+            };
+          }
+
+          if (item.type === "fixed") {
+            return {
+              field,
+              type: "fixed",
+              value: parseFixedValue(item.value.trim(), item.fixedKind)
+            };
+          }
+
+          return {
+            field,
+            type: "boolean"
+          };
+        });
+    }
+
+    function syncCustomJson() {
+      try {
+        const definitions = toCustomDefinitions();
+        customJson.value = definitions.length ? JSON.stringify(definitions, null, 2) : "";
+      } catch (error) {
+        customJson.value = `Error: ${error.message}`;
+      }
+    }
+
+    function renderCustomRows() {
+      customRows.innerHTML = "";
+
+      customState.forEach((row, index) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "custom-row";
+
+        const top = document.createElement("div");
+        top.className = "row three";
+        top.innerHTML = `
+          <div class="field">
+            <label>Field</label>
+            <input type="text" data-key="field" value="${row.field.replace(/"/g, "&quot;")}" placeholder="power" />
+          </div>
+          <div class="field">
+            <label>Type</label>
+            <select data-key="type">
+              <option value="integer" ${row.type === "integer" ? "selected" : ""}>integer</option>
+              <option value="float" ${row.type === "float" ? "selected" : ""}>float</option>
+              <option value="boolean" ${row.type === "boolean" ? "selected" : ""}>boolean</option>
+              <option value="enum" ${row.type === "enum" ? "selected" : ""}>enum</option>
+              <option value="fixed" ${row.type === "fixed" ? "selected" : ""}>fixed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Actions</label>
+            <button class="danger" type="button" data-remove="${index}">Remove</button>
+          </div>
+        `;
+
+        const extra = document.createElement("div");
+        extra.className = "row two";
+
+        if (row.type === "integer" || row.type === "float") {
+          extra.innerHTML = `
+            <div class="field">
+              <label>Min</label>
+              <input type="number" data-key="min" value="${row.min}" />
+            </div>
+            <div class="field">
+              <label>Max</label>
+              <input type="number" data-key="max" value="${row.max}" />
+            </div>
+          `;
+        } else if (row.type === "enum") {
+          extra.innerHTML = `
+            <div class="field" style="grid-column: 1 / -1;">
+              <label>Enum values (comma-separated)</label>
+              <input type="text" data-key="values" value="${row.values.replace(/"/g, "&quot;")}" placeholder="warrior,mage,archer" />
+            </div>
+          `;
+        } else if (row.type === "fixed") {
+          extra.innerHTML = `
+            <div class="field">
+              <label>Fixed value</label>
+              <input type="text" data-key="value" value="${String(row.value).replace(/"/g, "&quot;")}" placeholder="42 / true / hero" />
+            </div>
+            <div class="field">
+              <label>Value kind</label>
+              <select data-key="fixedKind">
+                <option value="string" ${row.fixedKind === "string" ? "selected" : ""}>string</option>
+                <option value="number" ${row.fixedKind === "number" ? "selected" : ""}>number</option>
+                <option value="boolean" ${row.fixedKind === "boolean" ? "selected" : ""}>boolean</option>
+              </select>
+            </div>
+          `;
+        }
+
+        wrapper.append(top, extra);
+        customRows.appendChild(wrapper);
+
+        wrapper.querySelectorAll("[data-key]").forEach((input) => {
+          input.addEventListener("input", () => {
+            const key = input.getAttribute("data-key");
+            row[key] = input.value;
+            if (key === "type") {
+              renderCustomRows();
+            }
+            syncCustomJson();
+          });
+        });
+
+        const removeButton = wrapper.querySelector("[data-remove]");
+        removeButton.addEventListener("click", () => removeCustomRow(index));
+      });
+    }
+
+    function buildOptions() {
+      const options = {};
+
+      const country = knownValueOrUndefined("country", "Country/group");
+      const phoneCountry = knownValueOrUndefined("phoneCountry", "Phone country/group");
+      const gender = valueOrUndefined("gender");
+      const job = knownValueOrUndefined("job", "Job");
+
+      if (country) {
+        options.country = [country];
+      }
+      if (phoneCountry) {
+        options.phoneCountry = [phoneCountry];
+      }
+      if (gender) {
+        options.gender = gender;
+      }
+      if (job) {
+        options.jobs = [job];
+      }
+
+      const minAge = numericOrUndefined("minAge");
+      const maxAge = numericOrUndefined("maxAge");
+      const salaryExact = numericOrUndefined("salaryExact");
+      const salaryMin = numericOrUndefined("salaryMin");
+      const salaryMax = numericOrUndefined("salaryMax");
+
+      if (isFilled(minAge)) options.minAge = minAge;
+      if (isFilled(maxAge)) options.maxAge = maxAge;
+      if (isFilled(salaryExact)) options.salaryExact = salaryExact;
+      if (isFilled(salaryMin)) options.salaryMin = salaryMin;
+      if (isFilled(salaryMax)) options.salaryMax = salaryMax;
+
+      const salaryCurrency = knownValueOrUndefined("salaryCurrency", "Salary currency");
+      if (salaryCurrency) {
+        options.salaryCurrency = salaryCurrency;
+      }
+
+      [
+        "city",
+        "educationLevel",
+        "maritalStatus",
+        "employmentType",
+        "name",
+        "firstName",
+        "lastName",
+        "nameFormat",
+        "email",
+        "emailDomain",
+        "phone",
+        "phonePrefix"
+      ].forEach((key) => {
+        const value = valueOrUndefined(key);
+        if (value) {
+          options[key] = value;
+        }
+      });
+
+      const custom = toCustomDefinitions();
+      if (custom.length > 0) {
+        options.custom = custom;
+      }
+
+      return options;
+    }
+
+    function buildOutputOptions() {
+      const selected = [...$("outputOption").selectedOptions].map((option) => option.value);
+      if (selected.length === 0) {
+        return undefined;
+      }
+
+      if (selected.length === 1) {
+        return { outputOption: selected[0] };
+      }
+
+      return { outputOption: selected };
+    }
+
+    function renderCall(options, outputOptions) {
+      const outputArg = outputOptions ? `, ${JSON.stringify(outputOptions, null, 2)}` : "";
+      callSnippet.textContent = `import { generatePerson } from './dist/index.js';\n\nconst person = generatePerson(${JSON.stringify(options, null, 2)}${outputArg});`;
+    }
+
+    function resetForm() {
+      [
+        "country",
+        "gender",
+        "minAge",
+        "maxAge",
+        "job",
+        "salaryCurrency",
+        "salaryExact",
+        "salaryMin",
+        "salaryMax",
+        "city",
+        "educationLevel",
+        "maritalStatus",
+        "employmentType",
+        "name",
+        "firstName",
+        "lastName",
+        "nameFormat",
+        "email",
+        "emailDomain",
+        "phone",
+        "phoneCountry",
+        "phonePrefix"
+      ].forEach((id) => {
+        $(id).value = "";
+      });
+
+      customState = [];
+      renderCustomRows();
+      syncCustomJson();
+      [...$("outputOption").options].forEach((option) => {
+        option.selected = false;
+      });
+
+      callSnippet.textContent = "Click Build call snippet.";
+      resultOutput.textContent = "Click Execute to run generatePerson(...).";
+    }
+
+    function init() {
+      const currencies = [...new Set(Object.values(COUNTRY_CURRENCY_DATA).map((entry) => entry.code))].sort();
+
+      setSearchOptions("country", "countryList", [...AVAILABLE_COUNTRIES].sort());
+      setSearchOptions("phoneCountry", "phoneCountryList", [...AVAILABLE_COUNTRIES].sort());
+      setOptions($("gender"), [...AVAILABLE_GENDERS], true);
+      setSearchOptions("job", "jobList", [...JOB_TITLES].sort());
+      setSearchOptions("salaryCurrency", "salaryCurrencyList", currencies);
+      setOptions($("educationLevel"), [...EDUCATION_LEVELS]);
+      setOptions($("maritalStatus"), [...MARITAL_STATUSES]);
+      setOptions($("employmentType"), [...EMPLOYMENT_TYPES]);
+      setOptions($("outputOption"), Object.values(GeneratePersonOutputOption), false);
+
+      $("buildCall").addEventListener("click", () => {
+        try {
+          const options = buildOptions();
+          const outputOptions = buildOutputOptions();
+          renderCall(options, outputOptions);
+        } catch (error) {
+          callSnippet.textContent = `Error: ${error.message}`;
+        }
+      });
+
+      $("execute").addEventListener("click", () => {
+        try {
+          const options = buildOptions();
+          const outputOptions = buildOutputOptions();
+          const result = outputOptions ? generatePerson(options, outputOptions) : generatePerson(options);
+          renderCall(options, outputOptions);
+          resultOutput.textContent = JSON.stringify(result, null, 2);
+        } catch (error) {
+          resultOutput.textContent = `Error: ${error.message}`;
+        }
+      });
+
+      $("reset").addEventListener("click", resetForm);
+      $("addCustom").addEventListener("click", () => addCustomRow());
+
+      addCustomRow({ field: "power", type: "integer", min: 1, max: 10 });
+    }
+
+    init();
+  </script>
+</body>
+</html>

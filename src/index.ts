@@ -5,6 +5,7 @@ import { buildEmail } from "./person/email.js";
 import { resolveCity } from "./person/address.js";
 import { generatePhoneNumber } from "./person/phone.js";
 import { resolvePersonName, resolveNamePools } from "./person/name.js";
+import { resolveCountryName } from "./person/country.js";
 import { filterResultByOutput } from "./person/output.js";
 import { resolveAgeAndDob } from "./person/age.js";
 import { pickFromOption, randomItem } from "./person/random.js";
@@ -13,7 +14,7 @@ import type { GenerateNameOptions, GeneratePersonOptions, GeneratePersonOutputOp
 
 export function generateName(options: GenerateNameOptions = {}): string {
 	const gender = pickFromOption(options.gender, AVAILABLE_GENDERS);
-	const country = pickFromOption(options.country, AVAILABLE_COUNTRIES);
+	const country = resolveCountryName(pickFromOption(options.country, AVAILABLE_COUNTRIES));
 	const { firstNames, lastNames } = resolveNamePools(country, gender);
 	return `${randomItem(firstNames)} ${randomItem(lastNames)}`;
 }
@@ -26,10 +27,11 @@ export function generatePerson(options: GeneratePersonOptions = {}, outputOption
 	const { age, dob } = resolveAgeAndDob(minAge, maxAge);
 
 	const gender = pickFromOption(options.gender, AVAILABLE_GENDERS);
-	const country = pickFromOption(options.country, AVAILABLE_COUNTRIES);
+	const country = resolveCountryName(pickFromOption(options.country, AVAILABLE_COUNTRIES));
 	const job = pickFromOption(options.jobs, JOB_TITLES);
 	const name = resolvePersonName(options, country, gender);
 	const attributes = buildPersonAttributes({
+		age,
 		educationLevel: options.educationLevel,
 		maritalStatus: options.maritalStatus,
 		employmentType: options.employmentType
@@ -41,7 +43,7 @@ export function generatePerson(options: GeneratePersonOptions = {}, outputOption
 	});
 	const city = resolveCity(options.city, country);
 	const phoneCountry = options.phoneCountry
-		? pickFromOption(options.phoneCountry, [country])
+		? resolveCountryName(pickFromOption(options.phoneCountry, [country]))
 		: country;
 	const phone = options.phone ?? generatePhoneNumber(phoneCountry, options.phonePrefix);
 	const email = options.email ?? buildEmail(name, country, dob, options.emailDomain);

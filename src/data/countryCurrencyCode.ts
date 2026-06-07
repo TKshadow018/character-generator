@@ -7,4 +7,4 @@ export type countryCurrencyCode =
   | "AUD" | "KPW" | "SYP" | "LKR" | "TWD" | "MWK" | "ZMW" | "KZT" | "SOS" | "CLP"
   | "GTQ" | "RON" | "KHR" | "ZWG" | "GNF" | "RWF" | "BIF" | "BOB" | "SSP" | "TND"
   | "HTG" | "DOP" | "JOD" | "AED" | "HNL" | "TJS" | "PGK" | "CUP" | "SEK" | "CZK"
-  | "AZN" | "HUF" | "CHF" | "ILS";
+  | "AZN" | "HUF" | "NZD" | "OMR" | "JMD" | "TTD" | "CHF" | "ILS";

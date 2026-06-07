@@ -1,6 +1,6 @@
-import { countryNames, type CountryName } from "../names/common.js";
+import { countryNames, countryGroupNames, type CountrySelection } from "../names/common.js";
 
 export type Gender = "male" | "female";
 
-export const AVAILABLE_COUNTRIES = Object.keys(countryNames) as CountryName[];
+export const AVAILABLE_COUNTRIES = [...Object.keys(countryNames) as CountrySelection[], ...countryGroupNames] as const;
 export const AVAILABLE_GENDERS: readonly Gender[] = ["male", "female"];

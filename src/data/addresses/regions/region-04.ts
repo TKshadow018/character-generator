@@ -11,6 +11,7 @@ import { CITY_NAMES as MADAGASCAR_CITIES } from "../countries/madagascar.js";
 import { CITY_NAMES as COTEDIVOIRE_CITIES } from "../countries/cote-d-ivoire.js";
 import { CITY_NAMES as CAMEROON_CITIES } from "../countries/cameroon.js";
 import { CITY_NAMES as NEPAL_CITIES } from "../countries/nepal.js";
+import { CITY_NAMES as OMAN_CITIES } from "../countries/oman.js";
 import type { CountryName } from "../../../names/common.js";
 
 export const REGION_04_CITIES = {
@@ -26,5 +27,6 @@ export const REGION_04_CITIES = {
   Madagascar: MADAGASCAR_CITIES,
   CoteDIvoire: COTEDIVOIRE_CITIES,
   Cameroon: CAMEROON_CITIES,
-  Nepal: NEPAL_CITIES
+  Nepal: NEPAL_CITIES,
+  Oman: OMAN_CITIES
 } as const satisfies Partial<Record<CountryName, readonly string[]>>;

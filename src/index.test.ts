@@ -137,6 +137,84 @@ describe("generatePerson", () => {
     expect(person.country).toBe("UnitedStates");
   });
 
+  it("resolves UnitedKingdom grouped country selection to a UK sub-country", () => {
+    const person = generatePerson({ country: ["UnitedKingdom"] });
+    expect(["England", "Scotland", "Wales", "Ireland"]).toContain(person.country);
+  });
+
+  it("resolves WestIndies grouped country selection to a Caribbean country", () => {
+    const person = generatePerson({ country: ["WestIndies"] });
+    expect(["Cuba", "DominicanRepublic", "Haiti", "Jamaica", "TrinidadAndTobago"]).toContain(person.country);
+  });
+
+  it("resolves Europe grouped country selection to a European country", () => {
+    const person = generatePerson({ country: ["Europe"] });
+    expect([
+      "Germany",
+      "France",
+      "Italy",
+      "Spain",
+      "Ireland",
+      "Scotland",
+      "England",
+      "Wales",
+      "Ukraine",
+      "Poland",
+      "Sweden",
+      "Romania",
+      "Netherlands",
+      "CzechRepublic",
+      "Azerbaijan",
+      "Portugal",
+      "Greece",
+      "Hungary",
+      "Austria",
+      "Switzerland",
+      "Belgium",
+      "Turkey",
+      "Russia"
+    ]).toContain(person.country);
+  });
+
+  it("resolves Asia grouped country selection to an Asian country", () => {
+    const person = generatePerson({ country: ["Asia"] });
+    expect([
+      "India",
+      "China",
+      "Indonesia",
+      "Pakistan",
+      "Bangladesh",
+      "Japan",
+      "Philippines",
+      "Vietnam",
+      "Iran",
+      "Turkey",
+      "Myanmar",
+      "SouthKorea",
+      "NorthKorea",
+      "Malaysia",
+      "SaudiArabia",
+      "Afghanistan",
+      "Yemen",
+      "Uzbekistan",
+      "Kazakhstan",
+      "SriLanka",
+      "Taiwan",
+      "Cambodia",
+      "Tajikistan",
+      "Jordan",
+      "UAE",
+      "Israel",
+      "Oman",
+      "Russia"
+    ]).toContain(person.country);
+  });
+
+  it("supports direct Jamaica selection", () => {
+    const person = generatePerson({ country: ["Jamaica"] });
+    expect(person.country).toBe("Jamaica");
+  });
+
   it("supports custom attributes of multiple types", () => {
     const person = generatePerson({
       country: ["UnitedStates"],
@@ -203,5 +281,53 @@ describe("generatePerson", () => {
     expect(ageFromDob).toBeGreaterThanOrEqual(minAge);
     expect(ageFromDob).toBeLessThanOrEqual(maxAge);
     expect(person.age).toBe(ageFromDob);
+  });
+
+  it("always sets maritalStatus to single for ages 16 and below", () => {
+    const people = generatePersons(
+      {
+        country: ["UnitedStates"],
+        jobs: ["Software Engineer"],
+        minAge: 10,
+        maxAge: 16
+      },
+      100
+    );
+
+    expect(people.every((person) => person.maritalStatus === "single")).toBe(true);
+  });
+
+  it("favors married over single in the 31-60 age range", () => {
+    const people = generatePersons(
+      {
+        country: ["UnitedStates"],
+        jobs: ["Software Engineer"],
+        minAge: 31,
+        maxAge: 60
+      },
+      1000
+    );
+
+    const marriedCount = people.filter((person) => person.maritalStatus === "married").length;
+    const singleCount = people.filter((person) => person.maritalStatus === "single").length;
+
+    expect(marriedCount).toBeGreaterThan(singleCount);
+  });
+
+  it("favors widowed over divorced in age over 60 range", () => {
+    const people = generatePersons(
+      {
+        country: ["UnitedStates"],
+        jobs: ["Software Engineer"],
+        minAge: 61,
+        maxAge: 75
+      },
+      1000
+    );
+
+    const widowedCount = people.filter((person) => person.maritalStatus === "widowed").length;
+    const divorcedCount = people.filter((person) => person.maritalStatus === "divorced").length;
+
+    expect(widowedCount).toBeGreaterThan(divorcedCount);
   });
 });

@@ -1,4 +1,4 @@
-import type { CountryName } from "../names/common.js";
+import type { CountryName, CountrySelection } from "../names/common.js";
 import type { EducationLevel } from "../data/education.js";
 import type { EmploymentType, MaritalStatus } from "../data/employment.js";
 import type { JobTitle } from "../data/professions.js";
@@ -6,7 +6,7 @@ import type { Gender } from "./config.js";
 import type { countryCurrencyCode } from "../data/countryCurrencyCode.js";
 
 export interface GenerateNameOptions {
-  country?: CountryName | readonly CountryName[];
+  country?: CountrySelection | readonly CountrySelection[];
   gender?: Gender | readonly Gender[];
 }
 
@@ -65,7 +65,7 @@ export interface GeneratePersonOptions extends GenerateNameOptions {
   email?: string;
   emailDomain?: string;
   phone?: string;
-  phoneCountry?: CountryName | readonly CountryName[];
+  phoneCountry?: CountrySelection | readonly CountrySelection[];
   phonePrefix?: string;
   name?: string;
   firstName?: string;

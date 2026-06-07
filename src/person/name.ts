@@ -9,6 +9,7 @@ import {
 import type { GeneratePersonOptions } from "./types.js";
 import type { Gender } from "./config.js";
 import { randomItem } from "./random.js";
+import { resolveCountryName } from "./country.js";
 
 export function resolveNamePools(country: CountryName | undefined, gender: Gender): {
   firstNames: readonly string[];
@@ -20,7 +21,8 @@ export function resolveNamePools(country: CountryName | undefined, gender: Gende
       : { firstNames: allFemaleFirstNames, lastNames: allFemaleLastNames };
   }
 
-  const names = countryNames[country];
+  const actualCountry = resolveCountryName(country);
+  const names = countryNames[actualCountry];
 
   return gender === "male"
     ? { firstNames: names.maleFirstNames, lastNames: names.maleLastNames }

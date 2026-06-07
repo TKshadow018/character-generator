@@ -20,6 +20,15 @@ import * as germanyNames from "./countries/germany.js";
 import * as tanzaniaNames from "./countries/tanzania.js";
 import * as thailandNames from "./countries/thailand.js";
 import * as unitedKingdomNames from "./countries/united-kingdom.js";
+import * as irelandNames from "./countries/ireland.js";
+import * as scotlandNames from "./countries/scotland.js";
+import * as englandNames from "./countries/england.js";
+import * as walesNames from "./countries/wales.js";
+import * as newZealandNames from "./countries/new-zealand.js";
+import * as omanNames from "./countries/oman.js";
+import * as jamaicaNames from "./countries/jamaica.js";
+import * as trinidadAndTobagoNames from "./countries/trinidad-and-tobago.js";
+import * as westIndiesNames from "./countries/west-indies.js";
 import * as franceNames from "./countries/france.js";
 import * as southAfricaNames from "./countries/south-africa.js";
 import * as italyNames from "./countries/italy.js";
@@ -122,6 +131,15 @@ export const countryNames = {
   Tanzania: tanzaniaNames,
   Thailand: thailandNames,
   UnitedKingdom: unitedKingdomNames,
+  Ireland: irelandNames,
+  Scotland: scotlandNames,
+  England: englandNames,
+  Wales: walesNames,
+  NewZealand: newZealandNames,
+  Oman: omanNames,
+  Jamaica: jamaicaNames,
+  TrinidadAndTobago: trinidadAndTobagoNames,
+  WestIndies: westIndiesNames,
   France: franceNames,
   SouthAfrica: southAfricaNames,
   Italy: italyNames,
@@ -213,3 +231,30 @@ export const allFemaleLastNames = countryNameSets.flatMap((country) => country.f
 
 export const allFirstNames = [...allMaleFirstNames, ...allFemaleFirstNames] as const;
 export const allLastNames = [...allMaleLastNames, ...allFemaleLastNames] as const;
+
+export const countryGroupNames = [
+  "Africa",
+  "Asia",
+  "Europe",
+  "NorthAmerica",
+  "SouthAmerica",
+  "Oceania",
+  "Caribbean",
+  "CentralAmerica",
+  "MiddleEast",
+  "SouthAsia",
+  "SoutheastAsia",
+  "EastAsia",
+  "WestAfrica",
+  "EastAfrica",
+  "SouthernAfrica",
+  "NorthernAfrica",
+  "WesternEurope",
+  "NorthernEurope",
+  "EasternEurope",
+  "SouthernEurope",
+  "CentralAsia"
+] as const;
+
+export type CountryGroupName = (typeof countryGroupNames)[number];
+export type CountrySelection = CountryName | CountryGroupName;
